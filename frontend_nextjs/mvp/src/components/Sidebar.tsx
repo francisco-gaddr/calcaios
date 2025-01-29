@@ -11,7 +11,7 @@ export default function Sidebar({ isSidebarOpen }: SidebarProps) {
     <aside
       className={`${
         isSidebarOpen ? "translate-x-0" : "-translate-x-full"
-      } lg:translate-x-0 fixed lg:relative w-64 bg-gray-800 text-white p-6 min-h-screen transition-transform duration-300 ease-in-out z-40`}
+      } lg:translate-x-0 fixed lg:relative w-64 bg-sideBar text-white p-6 min-h-screen transition-transform duration-300 ease-in-out z-40`}
     >
       <div className="mb-8">
         <h1 className="text-xl font-bold">CalcAios</h1>

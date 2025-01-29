@@ -1,24 +1,71 @@
 "use client";
 
 import Link from "next/link";
+import {
+  MdDashboard,
+  MdUpload,
+  MdAttachMoney,
+  MdAccessTime,
+  MdShowChart,
+  MdBusinessCenter,
+  MdSmartToy,
+  MdDescription,
+  MdSettings,
+} from "react-icons/md";
 
 interface NavLink {
   href: string;
-  icon: string;
+  icon: React.ReactNode;
   label: string;
   isActive?: boolean;
 }
 
 const navLinks: NavLink[] = [
-  { href: "/dashboard", icon: "📊", label: "Dashboard" },
-  { href: "/upload", icon: "⬇️", label: "Data Upload" },
-  { href: "/budgeting", icon: "💰", label: "Budgeting" },
-  { href: "/tax", icon: "⏰", label: "Tax Management" },
-  { href: "/visualizations", icon: "📈", label: "Visualizations" },
-  { href: "/analysis", icon: "💼", label: "Business Analysis" },
-  { href: "/ai", icon: "🤖", label: "AI Assistant" },
-  { href: "/reports", icon: "📑", label: "Reports" },
-  { href: "/settings", icon: "⚙️", label: "Settings" },
+  {
+    href: "/dashboard",
+    icon: <MdDashboard className="w-5 h-5" />,
+    label: "Dashboard",
+  },
+  {
+    href: "/upload",
+    icon: <MdUpload className="w-5 h-5" />,
+    label: "Data Upload",
+  },
+  {
+    href: "/budgeting",
+    icon: <MdAttachMoney className="w-5 h-5" />,
+    label: "Budgeting",
+  },
+  {
+    href: "/tax",
+    icon: <MdAccessTime className="w-5 h-5" />,
+    label: "Tax Management",
+  },
+  {
+    href: "/visualizations",
+    icon: <MdShowChart className="w-5 h-5" />,
+    label: "Visualizations",
+  },
+  {
+    href: "/analysis",
+    icon: <MdBusinessCenter className="w-5 h-5" />,
+    label: "Business Analysis",
+  },
+  {
+    href: "/ai",
+    icon: <MdSmartToy className="w-5 h-5" />,
+    label: "AI Assistant",
+  },
+  {
+    href: "/reports",
+    icon: <MdDescription className="w-5 h-5" />,
+    label: "Reports",
+  },
+  {
+    href: "/settings",
+    icon: <MdSettings className="w-5 h-5" />,
+    label: "Settings",
+  },
 ];
 
 export default function SidebarNavLinks() {
@@ -29,11 +76,21 @@ export default function SidebarNavLinks() {
           key={link.href}
           href={link.href}
           className={`flex items-center space-x-2 p-2 ${
-            link.href === "/dashboard" ? "bg-gray-700 rounded" : ""
+            link.href === "/dashboard" ? "bg-white rounded" : ""
           }`}
         >
-          <span>{link.icon}</span>
-          <span>{link.label}</span>
+          <span
+            className={
+              link.href === "/dashboard" ? "text-sideBar" : "text-white"
+            }
+          >
+            {link.icon}
+          </span>
+          <span
+            className={`${link.href === "/dashboard" ? "text-sideBar" : ""}`}
+          >
+            {link.label}
+          </span>
         </Link>
       ))}
     </nav>

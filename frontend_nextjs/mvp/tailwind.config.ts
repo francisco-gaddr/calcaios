@@ -11,6 +11,8 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        lightGray100: "#F6F6F6",
+        sideBar: "#444343",
       },
     },
   },
