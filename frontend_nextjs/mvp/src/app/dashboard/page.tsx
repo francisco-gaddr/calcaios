@@ -18,6 +18,7 @@ export default function Dashboard() {
         {isSidebarOpen ? "X" : "☰"}
       </button>
 
+      {/* make non scrollable */}
       <Sidebar isSidebarOpen={isSidebarOpen} />
 
       {/* Main Content - responsive */}
