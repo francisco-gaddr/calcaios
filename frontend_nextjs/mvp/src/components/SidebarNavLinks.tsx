@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   MdDashboard,
   MdUpload,
@@ -69,6 +70,7 @@ const navLinks: NavLink[] = [
 ];
 
 export default function SidebarNavLinks() {
+  const pathname = usePathname();
   return (
     <nav className="space-y-4">
       {navLinks.map((link) => (
@@ -76,19 +78,17 @@ export default function SidebarNavLinks() {
           key={link.href}
           href={link.href}
           className={`flex items-center space-x-2 p-2 ${
-            link.href === "/dashboard" ? "bg-white rounded" : ""
+            link.href === pathname ? "bg-white rounded" : ""
           }`}
         >
           <span
-            className={
-              link.href === "/dashboard" ? "text-sideBar" : "text-white"
-            }
+            className={`${
+              link.href === pathname ? "text-sideBar" : "text-white"
+            }`}
           >
             {link.icon}
           </span>
-          <span
-            className={`${link.href === "/dashboard" ? "text-sideBar" : ""}`}
-          >
+          <span className={`${link.href === pathname ? "text-sideBar" : ""}`}>
             {link.label}
           </span>
         </Link>
