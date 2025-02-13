@@ -1,5 +1,8 @@
 "use client";
 
+import { ArrowRight } from "lucide-react";
+import { Button } from "./ui/button";
+
 interface DataSectionProps {
   title: string;
 }
@@ -14,14 +17,14 @@ export default function DataSection({ title }: DataSectionProps) {
           <p className="text-gray-600">Such as CSV,XML,PDF,API</p>
         </div>
         <div className="flex space-x-4 mb-4">
-          <button className="bg-black text-white px-4 py-2 rounded flex items-center">
+          <Button size="lg">
             Upload a file
-            <span className="ml-2">→</span>
-          </button>
-          <button className="border border-black px-4 py-2 rounded flex items-center">
+            <ArrowRight />
+          </Button>
+          <Button size="lg" variant="outline">
             Input financial details
-            <span className="ml-2">→</span>
-          </button>
+            <ArrowRight />
+          </Button>
         </div>
         <p className="text-gray-600">Connect an external API endpoint</p>
       </div>
