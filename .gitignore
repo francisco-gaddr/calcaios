@@ -1,5 +1,6 @@
 # Dependency directories
-frontend/node_modules/
+next_js/mvp/node_modules/
+react/purple_homepage/node_modules/
 
 # Logs
 logs
