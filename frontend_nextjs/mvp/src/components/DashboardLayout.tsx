@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Sidebar from "./Sidebar";
-
+import Image from "next/image";
+import { BellIcon, HelpCircleIcon, SettingsIcon, UserIcon } from "lucide-react";
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -20,7 +21,33 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <Sidebar isSidebarOpen={isSidebarOpen} />
 
       {/* Main Content - responsive */}
-      <main className="flex-1 p-8 lg:p-12 pt-24 lg:pt-16">{children}</main>
+      <main className="flex-1 px-8 lg:px-12 pt-24 lg:pt-8 pb-10">
+        <div className="flex justify-between items-center">
+          <div>
+            <Image
+              src={"/assets/logo/LogoBlack.png"}
+              alt="CalcAios Logo"
+              width={55}
+              height={55}
+            />
+          </div>
+          <div className="flex gap-4">
+            <div className="bg-lightGray100 p-2 rounded-full">
+              <UserIcon className="text-[#5e6783]" />
+            </div>
+            <div className="bg-lightGray100 p-2 rounded-full">
+              <BellIcon className="text-[#5e6783]" />
+            </div>
+            <div className="bg-lightGray100 p-2 rounded-full">
+              <SettingsIcon className="text-[#5e6783]" />
+            </div>
+            <div className="bg-lightGray100 p-2 rounded-full">
+              <HelpCircleIcon className="text-[#5e6783]" />
+            </div>
+          </div>
+        </div>
+        <div className=" pt-24 lg:pt-16">{children}</div>
+      </main>
 
       {/* Overlay for mobile */}
       {isSidebarOpen && (
