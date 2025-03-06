@@ -1,18 +1,17 @@
 "use client";
 
+import {
+  Bot,
+  ChartColumnBig,
+  ChartPieIcon,
+  FileText,
+  HomeIcon,
+  Settings,
+  UploadIcon,
+  WalletIcon,
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import {
-  MdDashboard,
-  MdUpload,
-  MdAttachMoney,
-  MdAccessTime,
-  MdShowChart,
-  MdBusinessCenter,
-  MdSmartToy,
-  MdDescription,
-  MdSettings,
-} from "react-icons/md";
 
 interface NavLink {
   href: string;
@@ -24,47 +23,47 @@ interface NavLink {
 const navLinks: NavLink[] = [
   {
     href: "/dashboard",
-    icon: <MdDashboard className="w-5 h-5" />,
+    icon: <HomeIcon className="w-5 h-5" />,
     label: "Dashboard",
   },
   {
     href: "/upload",
-    icon: <MdUpload className="w-5 h-5" />,
+    icon: <UploadIcon className="w-5 h-5" />,
     label: "Data Upload",
   },
   {
     href: "/budgeting",
-    icon: <MdAttachMoney className="w-5 h-5" />,
+    icon: <WalletIcon className="w-5 h-5" />,
     label: "Budgeting",
   },
   {
     href: "/tax",
-    icon: <MdAccessTime className="w-5 h-5" />,
+    icon: <ChartPieIcon className="w-5 h-5" />,
     label: "Tax Management",
   },
   {
     href: "/visualizations",
-    icon: <MdShowChart className="w-5 h-5" />,
+    icon: <ChartColumnBig className="w-5 h-5" />,
     label: "Visualizations",
   },
-  {
-    href: "/analysis",
-    icon: <MdBusinessCenter className="w-5 h-5" />,
-    label: "Business Analysis",
-  },
+  // {
+  //   href: "/analysis",
+  //   icon: <MdBusinessCenter className="w-5 h-5" />,
+  //   label: "Business Analysis",
+  // },
   {
     href: "/ai",
-    icon: <MdSmartToy className="w-5 h-5" />,
+    icon: <Bot className="w-5 h-5" />,
     label: "AI Assistant",
   },
   {
     href: "/reports",
-    icon: <MdDescription className="w-5 h-5" />,
+    icon: <FileText className="w-5 h-5" />,
     label: "Reports",
   },
   {
     href: "/settings",
-    icon: <MdSettings className="w-5 h-5" />,
+    icon: <Settings className="w-5 h-5" />,
     label: "Settings",
   },
 ];
@@ -77,18 +76,18 @@ export default function SidebarNavLinks() {
         <Link
           key={link.href}
           href={link.href}
-          className={`flex items-center space-x-2 p-2 ${
-            link.href === pathname ? "bg-white rounded" : ""
-          }`}
+          className={`flex items-center space-x-2 p-2`}
         >
           <span
             className={`${
-              link.href === pathname ? "text-sideBar" : "text-white"
+              link.href === pathname ? "text-sideBarText" : "text-white"
             }`}
           >
             {link.icon}
           </span>
-          <span className={`${link.href === pathname ? "text-sideBar" : ""}`}>
+          <span
+            className={`${link.href === pathname ? "text-sideBarText" : ""}`}
+          >
             {link.label}
           </span>
         </Link>

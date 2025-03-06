@@ -5,11 +5,12 @@ import { Button } from "./ui/button";
 
 export default function MarketingSection() {
   return (
-    <section className="bg-lightGray100 p-4 lg:px-6 lg:py-8 rounded-lg">
-      <h2 className="text-xl lg:text-2xl font-semibold mb-4">
-        Lets see how is digital market today
-      </h2>
-      <Button size="lg">
+    <section className="bg-lightGray100 shadow-lg shadow-gray-200 p-4 lg:px-6 lg:py-8 rounded-lg">
+      <div className="mb-4 flex flex-col gap-1">
+        <p className=" font-bold text-md lg:text-2xl mb-1">Digital Market</p>
+        <p>Dive to know what is happening.</p>
+      </div>
+      <Button size="lg" className="font-semibold">
         Dig In
         <ArrowRight />
       </Button>
