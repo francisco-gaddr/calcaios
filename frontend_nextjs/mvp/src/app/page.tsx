@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -9,8 +11,11 @@ import {
   BotIcon,
   ChartLine,
 } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
     <div className="min-h-screen bg-white">
       {/* Navbar */}
@@ -57,7 +62,11 @@ export default function Home() {
                 insights.
               </p>
               <div className="flex flex-col justify-start items-start gap-2">
-                <Button size="lg" className="bg-accent hover:bg-accent">
+                <Button
+                  onClick={() => router.push("/onboarding")}
+                  size="lg"
+                  className="bg-accent hover:bg-accent"
+                >
                   Get Started <ChevronRight />
                 </Button>
                 <Button
