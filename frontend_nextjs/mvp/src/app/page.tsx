@@ -26,7 +26,7 @@ export default function Home() {
               />
             </div>
             <div className="flex gap-4">
-              <Link href="/signin">
+              <Link href="/login">
                 <Button
                   variant="ghost"
                   className="text-accent hover:text-white"

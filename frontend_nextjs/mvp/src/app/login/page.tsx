@@ -1,130 +1,39 @@
 "use client";
 
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { LockIcon, MailIcon, UserIcon } from "lucide-react";
 import AuthLayout from "@/components/AuthLayout";
+import { Button } from "@/components/ui/button";
+import { MailIcon, LockIcon } from "lucide-react";
 
-function SignUpPage() {
+const LoginWithEmailPage = () => {
   const [formData, setFormData] = useState({
-    fullName: "",
     email: "",
     password: "",
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
-  const [strength, setStrength] = useState(0); // 0: none, 1: weak, 2: normal, 3: strong, 4: very strong
 
-  const checkPasswordStrength = (password: string) => {
-    let score = 0;
-
-    // Length check
-    if (password.length >= 8) score++;
-
-    // Complexity checks
-    if (/[A-Z]/.test(password)) score++; // Has uppercase
-    if (/[0-9]/.test(password)) score++; // Has number
-    if (/[^A-Za-z0-9]/.test(password)) score++; // Has special char
-
-    setStrength(score);
-  };
-
-  const getStrengthText = () => {
-    switch (strength) {
-      case 1:
-        return "Weak";
-      case 2:
-        return "Normal";
-      case 3:
-        return "Strong";
-      case 4:
-        return "Very Strong";
-      default:
-        return "";
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     setError("");
-
-    try {
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      const data = await res.json();
-
-      if (!res.ok) {
-        throw new Error(data.error || "Something went wrong");
-      } else {
-        setSuccess(true);
-      }
-
-      // Redirect to login or dashboard
-      // window.location.href = '/login';
-    } catch (error: unknown) {
-      if (error instanceof Error) {
-        setError(error.message);
-      } else {
-        setError("An unexpected error occurred");
-      }
-    } finally {
-      setLoading(false);
-    }
+    setSuccess(true);
+    console.log("Form submitted");
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { id, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
-
-    // Check password strength when password field changes
-    if (id === "password") {
-      checkPasswordStrength(value);
-    }
+    setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
   return (
     <AuthLayout>
       <div className={"flex flex-col gap-2 mb-6"}>
-        <h1 className="text-3xl font-bold">Let&apos;s Get Started!</h1>
-        <p className="text-gray-500 bg-white">
-          Start your journey with our AI companion
-        </p>
+        <h1 className="text-3xl font-bold">Welcome Back!</h1>
+        <p className="text-gray-500 bg-white">Login to your account</p>
       </div>
       <form onSubmit={handleSubmit} className={"space-y w-full"}>
         {error && <div className="text-red-500 text-sm mb-4">{error}</div>}
-
-        <div className={"flex flex-col gap-1 mb-4"}>
-          <label htmlFor="fullName" className="text-sm font-medium">
-            Full Name
-          </label>
-          <div
-            className={
-              "flex items-center gap-3 px-3 py-2 border border-gray-300 rounded-md"
-            }
-          >
-            <UserIcon className="w-4 h-4" />
-            <input
-              type="text"
-              id="fullName"
-              value={formData.fullName}
-              onChange={handleChange}
-              className={"w-full focus:outline-none"}
-              placeholder="John Doe"
-              required
-            />
-          </div>
-        </div>
 
         <div className={"flex flex-col gap-1 mb-4"}>
           <label htmlFor="email" className="text-sm font-medium">
@@ -168,21 +77,6 @@ function SignUpPage() {
               required
             />
           </div>
-          {formData.password && (
-            <div>
-              <div className={"h-1 w-full bg-gray-200 rounded-full mt-1"}>
-                <div
-                  className={
-                    "h-full bg-accent rounded-full transition-all duration-300"
-                  }
-                  style={{ width: `${(strength / 4) * 100}%` }}
-                ></div>
-              </div>
-              <span className="text-sm text-gray-500 mt-1">
-                Password Strength: {getStrengthText()}
-              </span>
-            </div>
-          )}
         </div>
 
         <Button
@@ -190,12 +84,10 @@ function SignUpPage() {
           className="w-full mt-6 bg-accent hover:bg-accent/90 font-semibold"
           disabled={loading || success}
         >
-          {loading ? "Sign Up..." : "Sign Up"}
+          {loading ? "Login..." : "Login"}
         </Button>
         {success && (
-          <div className="text-green-500 text-sm my-4">
-            Account created successfully.
-          </div>
+          <div className="text-green-500 text-sm my-4">Login successful.</div>
         )}
 
         {/* Divider */}
@@ -207,7 +99,7 @@ function SignUpPage() {
           <div className={"flex-grow border-t border-gray-300"}></div>
         </div>
 
-        {/* Google Sign Up Button */}
+        {/* Google Sign In Button */}
         <Button
           variant="secondary"
           className="w-full flex items-center justify-center gap-2"
@@ -230,19 +122,19 @@ function SignUpPage() {
               fill="#00000"
             />
           </svg>
-          Sign up with Google
+          Login with Google
         </Button>
 
         {/* Sign In Link */}
         <p className="text-center text-sm text-gray-600 mt-6">
-          Already have an account?{" "}
-          <a href="/login" className="text-black hover:underline">
-            Log in here
+          Don&apos;t have an account?{" "}
+          <a href="/signup" className="text-black hover:underline">
+            Sign up
           </a>
         </p>
       </form>
     </AuthLayout>
   );
-}
+};
 
-export default SignUpPage;
+export default LoginWithEmailPage;
