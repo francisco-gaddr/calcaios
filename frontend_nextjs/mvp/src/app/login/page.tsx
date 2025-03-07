@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import AuthLayout from "@/components/AuthLayout";
 import { Button } from "@/components/ui/button";
 import { MailIcon, LockIcon } from "lucide-react";
+import Link from "next/link";
 
 const LoginWithEmailPage = () => {
   const [formData, setFormData] = useState({
@@ -27,7 +28,10 @@ const LoginWithEmailPage = () => {
   };
 
   return (
-    <AuthLayout>
+    <AuthLayout
+      bgColor="bg-[#0D3D38]"
+      image="/assets/images/auth-illustration.png"
+    >
       <div className={"flex flex-col gap-2 mb-6"}>
         <h1 className="text-3xl font-bold">Welcome Back!</h1>
         <p className="text-gray-500 bg-white">Login to your account</p>
@@ -77,6 +81,13 @@ const LoginWithEmailPage = () => {
               required
             />
           </div>
+
+          <Link
+            href="/forgot-password"
+            className="text-md text-accent text-end mt-2"
+          >
+            Forgot Password?
+          </Link>
         </div>
 
         <Button

@@ -1,15 +1,21 @@
 import Image from "next/image";
 
-const AuthLayout = ({ children }: { children: React.ReactNode }) => {
+const AuthLayout = ({
+  children,
+  bgColor,
+  image,
+}: {
+  children: React.ReactNode;
+  bgColor: string;
+  image: string;
+}) => {
   return (
     <div className={"grid grid-cols-2 min-h-screen"}>
       <div
-        className={
-          "bg-[#0D3D38] w-full h-full flex items-center justify-center"
-        }
+        className={`${bgColor} w-full h-full flex items-center justify-center`}
       >
         <Image
-          src={"/assets/images/auth-illustration.png"}
+          src={image}
           alt="Robot icon"
           width={650}
           height={650}

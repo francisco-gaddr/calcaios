@@ -94,7 +94,10 @@ function SignUpPage() {
   };
 
   return (
-    <AuthLayout>
+    <AuthLayout
+      bgColor="bg-[#0D3D38]"
+      image="/assets/images/auth-illustration.png"
+    >
       <div className={"flex flex-col gap-2 mb-6"}>
         <h1 className="text-3xl font-bold">Let&apos;s Get Started!</h1>
         <p className="text-gray-500 bg-white">
