@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Navbar from "@/components/onboarding/Navbar";
-import WelcomeStep from "@/components/onboarding/WelcomeStep";
-import PersonalityStep from "@/components/onboarding/PersonalityStep";
-import PreviewStep from "@/components/onboarding/PreviewStep";
-import InterestsStep from "@/components/onboarding/InterestsStep";
+import Navbar from "@/components/Navbar";
+import WelcomeStep from "@/components/Onboarding/WelcomeStep";
+import PersonalityStep from "@/components/Onboarding/PersonalityStep";
+import PreviewStep from "@/components/Onboarding/PreviewStep";
+import InterestsStep from "@/components/Onboarding/InterestsStep";
 
 export default function Onboarding() {
   const [currentStep, setCurrentStep] = useState(1);
@@ -32,7 +32,7 @@ export default function Onboarding() {
 
   return (
     <div className="min-h-screen">
-      <Navbar />
+      <Navbar isUserAuthenticated={true} />
 
       {currentStep === 1 && (
         <WelcomeStep onNext={handleNext} onSkip={handleSkip} />

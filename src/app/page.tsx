@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
   Zap,
@@ -12,6 +11,7 @@ import {
   ChartLine,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import Navbar from "@/components/Navbar";
 
 export default function Home() {
   const router = useRouter();
@@ -19,35 +19,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navbar */}
-      <nav className="border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
-            <div className="flex-shrink-0">
-              <Image
-                src={"/assets/logo/LogoBlack.png"}
-                alt="CalcAios Logo"
-                width={60}
-                height={60}
-              />
-            </div>
-            <div className="flex gap-4">
-              <Link href="/login">
-                <Button
-                  variant="ghost"
-                  className="text-accent hover:text-white"
-                >
-                  Sign In
-                </Button>
-              </Link>
-              <Link href="/signup">
-                <Button variant="default" className="bg-accent hover:bg-accent">
-                  Sign Up
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </nav>
+      <Navbar isUserAuthenticated={false} />
 
       {/* Hero Section */}
       <div className="bg-lightGray100">
