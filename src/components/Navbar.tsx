@@ -4,14 +4,26 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 
 export default function Navbar({
+  dashboard,
   isUserAuthenticated,
 }: {
+  dashboard?: boolean;
   isUserAuthenticated: boolean;
 }) {
   return (
-    <nav className="border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20 items-center">
+    <nav className={`${!dashboard ? "border-b" : ""}`}>
+      <div
+        className={`${
+          !dashboard ? "max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" : ""
+        }`}
+      >
+        <div
+          className={`${
+            !dashboard
+              ? "flex justify-between h-20 items-center"
+              : "flex justify-between items-center"
+          }`}
+        >
           <div className="flex-shrink-0">
             <Image
               src={"/assets/logo/LogoBlack.png"}

@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import Sidebar from "./Sidebar";
-import Image from "next/image";
-import { BellIcon, HelpCircleIcon, SettingsIcon, UserIcon } from "lucide-react";
+import Navbar from "./Navbar";
+
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -22,30 +22,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
 
       {/* Main Content - responsive */}
       <main className="flex-1 px-8 lg:px-12 pt-24 lg:pt-8 pb-10">
-        <div className="flex justify-between items-center">
-          <div>
-            <Image
-              src={"/assets/logo/LogoBlack.png"}
-              alt="CalcAios Logo"
-              width={55}
-              height={55}
-            />
-          </div>
-          <div className="flex gap-4">
-            <div className="bg-lightGray100 p-2 rounded-full">
-              <UserIcon className="text-[#5e6783]" />
-            </div>
-            <div className="bg-lightGray100 p-2 rounded-full">
-              <BellIcon className="text-[#5e6783]" />
-            </div>
-            <div className="bg-lightGray100 p-2 rounded-full">
-              <SettingsIcon className="text-[#5e6783]" />
-            </div>
-            <div className="bg-lightGray100 p-2 rounded-full">
-              <HelpCircleIcon className="text-[#5e6783]" />
-            </div>
-          </div>
-        </div>
+        <Navbar dashboard={true} isUserAuthenticated={true} />
         <div className=" pt-24 lg:pt-16">{children}</div>
       </main>
 
