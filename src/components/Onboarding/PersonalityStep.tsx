@@ -5,8 +5,10 @@ import { StepProps } from "./types/StepProps";
 
 const PersonalityStep = ({ onNext, onBack, onSkip }: StepProps) => {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
-      <h1 className="text-3xl font-bold mb-4">Choose Your AI Personality</h1>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-28">
+      <h1 className="text-2xl sm:text-3xl font-bold mb-4">
+        Choose Your AI Personality
+      </h1>
       <p className="mb-2">
         Select the personality style that best fits your needs and preferences.
       </p>

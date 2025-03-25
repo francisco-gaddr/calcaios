@@ -6,13 +6,13 @@ import { StepProps } from "./types/StepProps";
 const WelcomeStep = ({ onNext, onSkip }: StepProps) => {
   return (
     <div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
+            <h1 className="text-3xl sm:text-5xl font-bold mb-4 sm:mb-6">
               Let&apos;s Meet Your AI Companion!
             </h1>
-            <p className="text-gray-600 text-xl mb-8">
+            <p className="text-gray-600 text-base sm:text-xl mb-6 sm:mb-8">
               You&apos;re all set! Now, let&apos;s find the perfect AI assistant
               tailored to your needs. Explore options and select the one that
               suits you best.
