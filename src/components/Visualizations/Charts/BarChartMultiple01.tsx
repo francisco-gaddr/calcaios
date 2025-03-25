@@ -38,7 +38,9 @@ export function BarChartMultiple01() {
   return (
     <Card className="bg-lightGray100">
       <CardHeader>
-        <CardTitle className="text-xl">Bar Chart - Multiple</CardTitle>
+        <CardTitle className="text-lg sm:text-xl">
+          Bar Chart - Multiple
+        </CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>

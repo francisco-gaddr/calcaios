@@ -39,7 +39,7 @@ export function LineChart01() {
   return (
     <Card className="bg-lightGray100">
       <CardHeader>
-        <CardTitle className="text-xl">Line Chart</CardTitle>
+        <CardTitle className="text-lg sm:text-xl">Line Chart</CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
