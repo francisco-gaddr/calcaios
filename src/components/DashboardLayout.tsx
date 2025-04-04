@@ -11,7 +11,7 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
     <div className="flex min-h-screen relative">
       {/* Mobile Menu Button */}
       <button
-        className="lg:hidden fixed top-4 right-4 z-50 p-2 rounded-md bg-gray-800 text-white"
+        className="lg:hidden fixed top-4 right-4 z-50 px-4 py-2 rounded-md bg-gray-800 text-white"
         onClick={() => setIsSidebarOpen(!isSidebarOpen)}
       >
         {isSidebarOpen ? "X" : "☰"}
@@ -21,9 +21,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
       <Sidebar isSidebarOpen={isSidebarOpen} />
 
       {/* Main Content - responsive */}
-      <main className="flex-1 px-8 lg:px-12 pt-24 lg:pt-8 pb-10">
+      <main className="flex-1 px-4 sm:px-8 lg:px-12 pt-24 lg:pt-8 pb-10">
         <Navbar dashboard={true} isUserAuthenticated={true} />
-        <div className=" pt-24 lg:pt-16">{children}</div>
+        <div className="pt-12 lg:pt-16">{children}</div>
       </main>
 
       {/* Overlay for mobile */}

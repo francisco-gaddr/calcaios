@@ -1,11 +1,11 @@
 import Image from "next/image";
 import { Button } from "../ui/button";
-import { ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { StepProps } from "./types/StepProps";
 
 const PreviewStep = ({ onNext, onBack, onSkip }: StepProps) => {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-28">
+    <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-28">
       <div className="bg-lightGray100 rounded-xl p-6">
         <div className="flex items-center gap-4 mb-8">
           <div className="w-12 h-12">
@@ -27,27 +27,25 @@ const PreviewStep = ({ onNext, onBack, onSkip }: StepProps) => {
             }
           </p>
         </div>
-        <div className="flex justify-between">
+        <div className="flex flex-col sm:flex-row gap-3 justify-between text-end">
           <div className="flex flex-col sm:flex-row gap-3">
             <Button
-              size="lg"
+              variant="outline"
+              className="text-md border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white"
+              onClick={onBack}
+            >
+              <ChevronLeft />
+              Preview another
+            </Button>
+            <Button
               className="bg-accent hover:bg-accent text-md"
               onClick={onNext}
             >
               Choose this personality
             </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="text-md border-gray-600 text-gray-600 hover:bg-gray-600 hover:text-white"
-              onClick={onBack}
-            >
-              Preview another
-            </Button>
           </div>
           <div>
             <Button
-              size="lg"
               variant="outline"
               className="text-md border-accent text-accent hover:bg-accent hover:text-white"
               onClick={onSkip}

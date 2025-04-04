@@ -50,13 +50,11 @@ export default function Navbar({
               </>
             ) : (
               <>
-                <Link href="/login">
-                  <Button
-                    variant="ghost"
-                    className="text-accent hover:text-white"
-                  >
-                    Sign In
-                  </Button>
+                <Link
+                  href="/login"
+                  className="text-accent flex items-center justify-center px-2 font-semibold text-sm"
+                >
+                  Sign In
                 </Link>
                 <Link href="/signup">
                   <Button

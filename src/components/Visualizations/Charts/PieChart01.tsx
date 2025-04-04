@@ -48,7 +48,7 @@ export function PieChart01() {
   return (
     <Card className="flex flex-col bg-lightGray100">
       <CardHeader className="pb-0">
-        <CardTitle className="text-xl">Pie Chart</CardTitle>
+        <CardTitle className="text-lg sm:text-xl">Pie Chart</CardTitle>
       </CardHeader>
       <CardContent className="flex-1 pb-0">
         <ChartContainer

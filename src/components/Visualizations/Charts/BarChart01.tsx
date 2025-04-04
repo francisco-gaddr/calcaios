@@ -30,7 +30,7 @@ export function BarChart01() {
   return (
     <Card className="bg-lightGray100">
       <CardHeader>
-        <CardTitle className="text-xl">Bar Chart</CardTitle>
+        <CardTitle className="text-lg sm:text-xl">Bar Chart</CardTitle>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig}>
